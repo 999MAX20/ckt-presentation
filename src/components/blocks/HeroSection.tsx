@@ -54,7 +54,7 @@ export function HeroSection() {
   ];
 
   return (
-    <section className="relative w-full min-h-[95vh] flex flex-col lg:flex-row items-center justify-between pt-44 pb-16 lg:pt-28">
+    <section className="relative w-full min-h-[95vh] flex flex-col lg:flex-row items-center justify-between pt-16 pb-16 lg:pt-28">
       {/* Left Content */}
       <motion.div
         className="flex-1 z-10 w-full"
@@ -69,8 +69,8 @@ export function HeroSection() {
           className="text-4xl sm:text-5xl md:text-[68px] font-semibold tracking-[-0.03em] mb-8 font-display flex flex-col items-start"
         >
           <span className="block leading-[0.9]">Центр</span>
-          <span className="block leading-[0.92] -mt-2 md:-mt-0">карточных</span>
-          <span className="block leading-[0.92] -mt-2 md:-mt-0">технологий</span>
+          <span className="block leading-[0.92] -mt-0 md:-mt-0">карточных</span>
+          <span className="block leading-[0.92] -mt-0 md:-mt-0">технологий</span>
         </motion.h1>
 
         <div className="overflow-hidden mb-6">

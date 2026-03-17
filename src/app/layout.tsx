@@ -12,6 +12,9 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "ЦКТ | Центр карточных технологий",
   description: "Платежная инфраструктура для стратегического роста",
+  icons: {
+    icon: "/favicon.svg",
+  },
 };
 
 export default function RootLayout({

@@ -47,8 +47,8 @@ export function TransferMethodsCard({ isCompact = false }: TransferMethodsCardPr
       {/* Background ambient glow matching the map's aesthetic */}
       <div className="absolute -inset-1 bg-gradient-to-br from-blue-500/20 via-teal-400/10 to-transparent rounded-3xl blur-2xl opacity-50 group-hover:opacity-100 transition duration-1000" />
       
-      <div className="relative w-full h-full bg-[#0F172A]/70 backdrop-blur-md rounded-3xl p-8 border border-white/10 shadow-2xl flex flex-col">
-        <h3 className="text-2xl font-bold text-[#E6EDF3] mb-8 tracking-tight font-display">
+      <div className="relative w-full h-full flex flex-col items-center">
+        <h3 className="text-2xl font-bold text-[#E6EDF3] mb-8 tracking-tight font-display text-center">
           Методы переводов
         </h3>
 

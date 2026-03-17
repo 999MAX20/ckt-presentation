@@ -15,27 +15,26 @@ import { motion } from "framer-motion";
 // Kazakhstan coordinates as the central hub
 const KAZAKHSTAN_CORDS: [number, number] = [66.9237, 48.0196]; // Center approx
 
-// The countries we want to highlight
-// Note: world-atlas names might differ, often "China", "South Korea", "Vietnam", "Thailand", "Kyrgyzstan", "Uzbekistan"
-const HIGHLIGHT_COUNTRIES = [
-  "China",
-  "South Korea",
-  "Vietnam",
-  "Thailand",
-  "Kyrgyzstan",
-  "Uzbekistan",
-  "Kazakhstan",
-  "Russia"
-];
+// Custom colors for integration countries
+const COUNTRY_COLORS: Record<string, string> = {
+  "China": "#EF4444",      // Red
+  "South Korea": "#3B82F6", // Blue
+  "Vietnam": "#F59E0B",     // Yellow/Gold
+  "Thailand": "#A855F7",    // Purple
+  "Kyrgyzstan": "#10B981",  // Emerald
+  "Uzbekistan": "#06B6D4",  // Cyan
+  "Kazakhstan": "#3B82F6",  // Blue (Hub)
+  "Russia": "#6366F1",      // Indigo
+};
 
 const INTEGRATION_NODES = [
-  { id: "CHN", name: "Китай", coordinates: [104.1954, 35.8617] as [number, number] },
-  { id: "KOR", name: "Южная Корея", coordinates: [127.7669, 35.9078] as [number, number] },
-  { id: "VNM", name: "Вьетнам", coordinates: [108.2772, 14.0583] as [number, number] },
-  { id: "THA", name: "Таиланд", coordinates: [100.9925, 15.8700] as [number, number] },
-  { id: "KGZ", name: "Кыргызстан", coordinates: [74.7661, 41.2044] as [number, number] },
-  { id: "UZB", name: "Узбекистан", coordinates: [64.5853, 41.3775] as [number, number] },
-  { id: "RUS", name: "Россия", coordinates: [105.3188, 61.5240] as [number, number] },
+  { id: "CHN", name: "Китай", color: "#EF4444", coordinates: [104.1954, 35.8617] as [number, number] },
+  { id: "KOR", name: "Южная Корея", color: "#3B82F6", coordinates: [127.7669, 35.9078] as [number, number] },
+  { id: "VNM", name: "Вьетнам", color: "#F59E0B", coordinates: [108.2772, 14.0583] as [number, number] },
+  { id: "THA", name: "Таиланд", color: "#A855F7", coordinates: [100.9925, 15.8700] as [number, number] },
+  { id: "KGZ", name: "Кыргызстан", color: "#10B981", coordinates: [74.7661, 41.2044] as [number, number] },
+  { id: "UZB", name: "Узбекистан", color: "#06B6D4", coordinates: [64.5853, 41.3775] as [number, number] },
+  { id: "RUS", name: "Россия", color: "#6366F1", coordinates: [105.3188, 61.5240] as [number, number] },
 ];
 
 const geoUrl = "/topology/world.json";
@@ -73,13 +72,13 @@ const MapChart = () => {
           {({ geographies }) =>
             geographies.map((geo) => {
               const name = geo.properties.name;
-              const isHighlight = HIGHLIGHT_COUNTRIES.includes(name);
+              const countryColor = COUNTRY_COLORS[name];
 
               return (
                 <Geography
                   key={geo.rsmKey}
                   geography={geo}
-                  fill={isHighlight ? "#234B7A" : "#17263A"}
+                  fill={countryColor ? `${countryColor}99` : "#17263A"} // Add 99 for ~60% opacity
                   stroke="#274060"
                   strokeWidth={0.5}
                   style={{
@@ -99,10 +98,10 @@ const MapChart = () => {
             key={`line-${idx}`}
             from={KAZAKHSTAN_CORDS}
             to={node.coordinates}
-            stroke="#00D4FF"
+            stroke={node.color}
             strokeWidth={1}
             strokeLinecap="round"
-            className="opacity-20 translate-y-[-1px]"
+            className="opacity-30 translate-y-[-1px]"
             style={{ strokeDasharray: "3 3" }}
           />
         ))}
@@ -120,7 +119,7 @@ const MapChart = () => {
               {/* Pulsing effect */}
               <motion.circle
                 r={10}
-                fill="#00D4FF"
+                fill={node.color}
                 initial={{ scale: 0.5, opacity: 0.8 }}
                 animate={{ scale: 1.5, opacity: 0 }}
                 transition={{
@@ -130,7 +129,7 @@ const MapChart = () => {
                 }}
               />
               {/* Base dot */}
-              <circle r={3} fill="#00D4FF" className="group-hover:fill-white transition-colors" />
+              <circle r={3} fill={node.color} className="group-hover:fill-white transition-colors" />
 
               {/* Tooltip emulation with SVG text */}
               <text
