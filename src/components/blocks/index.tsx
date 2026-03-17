@@ -1,0 +1,12 @@
+export { HeroSection } from "./HeroSection";
+export { AdvantagesSection } from "./AdvantagesSection";
+export { AboutSection } from "./AboutSection";
+export { LicenseSection } from "./LicenseSection";
+export { VisaPciSection } from "./VisaPciSection";
+export { TechArchitectureSection } from "./TechArchitectureSection";
+export { IntegrationsSection } from "./IntegrationsSection";
+export { BankingPartnersSection } from "./BankingPartnersSection";
+export { AssetsSection } from "./AssetsSection";
+export { ComplianceSection } from "./ComplianceSection";
+export { RevenueSection } from "./RevenueSection";
+export { ValueAssetSection } from "./ValueAssetSection";
