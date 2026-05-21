@@ -11,6 +11,9 @@ import {
   ComplianceSection,
   RevenueSection,
   ValueAssetSection,
+  TopNavigation,
+  TrustStrip,
+  FinalCtaSection,
 } from "@/components/blocks";
 
 import DarkVeil from "@/components/ui/DarkVeil";
@@ -18,6 +21,7 @@ import DarkVeil from "@/components/ui/DarkVeil";
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between pb-24 overflow-x-hidden selection:bg-primary/30 selection:text-white">
+      <TopNavigation />
       <div className="fixed inset-0 z-[-1] bg-[#080F1A] overflow-hidden">
         <DarkVeil
           hueShift={500}
@@ -33,6 +37,7 @@ export default function Home() {
 
       <div className="w-full max-w-[1400px] mx-auto px-5 sm:px-6 lg:px-12 flex flex-col gap-14 sm:gap-20 md:gap-24 lg:gap-32 relative z-10">
         <HeroSection />
+        <TrustStrip />
         <AdvantagesSection />
         <AboutSection />
         <LicenseSection />
@@ -44,6 +49,7 @@ export default function Home() {
         <ComplianceSection />
         <RevenueSection />
         <ValueAssetSection />
+        <FinalCtaSection />
       </div>
     </main>
   );

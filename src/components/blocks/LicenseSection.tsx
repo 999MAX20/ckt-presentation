@@ -18,7 +18,7 @@ export function LicenseSection() {
   };
 
   return (
-    <AnimatedSection className="w-full">
+    <AnimatedSection className="w-full" id="license">
       <div className="max-w-4xl mx-auto flex flex-col items-center text-center">
         <h2 className="text-2xl sm:text-3xl md:text-[40px] font-bold mb-8 sm:mb-12 font-display tracking-normal section-title">
           Лицензия и регулирование

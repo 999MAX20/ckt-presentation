@@ -2,8 +2,7 @@
 
 import { motion, Variants } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, ShieldCheck, CreditCard, LayoutGrid, Globe, Building2 } from "lucide-react";
-import { useState, useEffect } from "react";
+import { ArrowRight, Building2, CheckCircle2, CreditCard, Globe, Landmark, LayoutGrid, ShieldCheck } from "lucide-react";
 
 export function HeroSection() {
   const containerVariants: Variants = {
@@ -32,51 +31,35 @@ export function HeroSection() {
     },
   };
 
-  const floatVariants: Variants = {
-    fixed: { y: 0 },
-    floating: (custom: number) => ({
-      y: [0, -15, 0],
-      transition: {
-        duration: 3 + custom,
-        repeat: Infinity,
-        ease: "easeInOut",
-      },
-    }),
-  };
-
   const rightCards = [
-    { text: "Лицензия НБРК", icon: ShieldCheck, custom: 0 },
-    { text: "Сертификация VISA", icon: CreditCard, custom: 1 },
-    { text: "PCI DSS 4.0.1", icon: LayoutGrid, custom: 0.5 },
-    { text: "Банки Казахстана", icon: Building2, custom: 1.5 },
-    { text: "Cross-border", icon: Globe, custom: 0.8 },
+    { text: "НБРК", detail: "Платежная организация", icon: Landmark },
+    { text: "Visa PF", detail: "Прямое подключение", icon: CreditCard },
+    { text: "PCI DSS", detail: "4.0.1 certified", icon: LayoutGrid },
+    { text: "Банки РК", detail: "Расчеты и processing", icon: Building2 },
+    { text: "Corridors", detail: "6+ стран", icon: Globe },
   ];
 
-  const [radius, setRadius] = useState(220);
-
-  useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth < 480) setRadius(128);
-      else if (window.innerWidth < 640) setRadius(158);
-      else if (window.innerWidth < 1024) setRadius(198);
-      else setRadius(220);
-    };
-
-    handleResize();
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
+  const metrics = [
+    { value: "2021", label: "регистрация НБРК" },
+    { value: "PCI 4.0.1", label: "сертификация" },
+    { value: "Visa PF", label: "статус партнера" },
+  ];
 
   return (
-    <section className="relative w-full min-h-[95vh] flex flex-col lg:flex-row items-center justify-between pt-16 pb-16 lg:pt-28">
-      {/* Left Content */}
+    <section className="relative w-full min-h-[95vh] flex flex-col lg:flex-row items-center justify-between gap-12 pt-28 pb-16 lg:pt-32">
       <motion.div
         className="flex-1 z-10 w-full"
         variants={containerVariants}
         initial="hidden"
         animate="show"
       >
-
+        <motion.div
+          variants={itemVariants}
+          className="mb-6 inline-flex items-center gap-2 rounded-md border border-blue-300/20 bg-blue-400/10 px-3 py-1.5 text-xs font-bold uppercase tracking-wide text-blue-200"
+        >
+          <CheckCircle2 className="h-4 w-4" />
+          Licensed fintech infrastructure
+        </motion.div>
 
         <motion.h1
           variants={textRevealVariants}
@@ -106,7 +89,7 @@ export function HeroSection() {
 
         <motion.div
           variants={itemVariants}
-          className="flex flex-col sm:flex-row gap-4 mb-20 lg:mb-0"
+          className="flex flex-col sm:flex-row gap-4 mb-10"
         >
           <Button
             size="lg"
@@ -127,73 +110,55 @@ export function HeroSection() {
             <ArrowRight className="w-4 h-4" />
           </Button>
         </motion.div>
+
+        <motion.div variants={itemVariants} className="grid max-w-2xl grid-cols-1 gap-3 sm:grid-cols-3">
+          {metrics.map((metric) => (
+            <div key={metric.value} className="rounded-lg border border-white/10 bg-white/[0.035] p-4">
+              <div className="text-xl font-bold text-white">{metric.value}</div>
+              <div className="mt-1 text-xs text-slate-400">{metric.label}</div>
+            </div>
+          ))}
+        </motion.div>
       </motion.div>
 
-      {/* Right Content - Abstract Fintech Visual */}
-      <div className="flex-1 w-full mt-32 sm:mt-20 lg:mt-0 relative h-[450px] sm:h-[600px] flex items-center justify-center">
-        <div className="absolute inset-0 z-0 flex items-center justify-center">
-          <div className="h-[72%] w-[72%] border border-blue-400/10 bg-[#0B1728]/35 backdrop-blur-sm" />
-          <div className="absolute h-[48%] w-[48%] border border-blue-300/10" />
-        </div>
+      <div className="flex-1 w-full relative min-h-[520px] flex items-center justify-center">
+        <div className="relative z-10 w-full max-w-[540px] rounded-lg border border-white/10 bg-[#081322]/84 p-5 shadow-[0_28px_110px_rgba(0,0,0,0.35)] backdrop-blur-xl sm:p-6">
+          <div className="mb-5 flex items-center justify-between border-b border-white/10 pb-4">
+            <div>
+              <div className="text-xs font-bold uppercase tracking-wide text-slate-500">Infrastructure map</div>
+              <div className="mt-1 text-lg font-semibold text-white">ЦКТ Core</div>
+            </div>
+            <ShieldCheck className="h-6 w-6 text-emerald-300" />
+          </div>
 
-        {/* Floating Cards Diagram */}
-        <div className="relative z-10 w-full h-full max-w-[500px]">
-          {rightCards.map((card, i) => {
+          <div className="relative grid gap-3 sm:grid-cols-2">
+            <div className="absolute left-1/2 top-8 bottom-8 hidden w-px -translate-x-1/2 bg-blue-400/20 sm:block" />
+            {rightCards.map((card) => {
             const Icon = card.icon;
-            const angle = (i * (2 * Math.PI)) / rightCards.length - Math.PI / 2;
-            const x = Math.cos(angle) * radius;
-            const y = Math.sin(angle) * radius;
 
             return (
               <motion.div
-                key={i}
-                initial={{ opacity: 0, scale: 0 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.5 + i * 0.1, type: "spring" }}
-                className="absolute left-[50%] top-[50%] -translate-x-1/2 -translate-y-1/2"
-                style={{ x, y }}
+                key={card.text}
+                variants={itemVariants}
+                className="relative rounded-lg border border-white/10 bg-white/[0.035] p-4"
               >
-                <motion.div
-                  variants={floatVariants}
-                  initial="fixed"
-                  animate="floating"
-                  custom={card.custom}
-                >
-                  <div className="w-[140px] sm:w-[200px] p-3 sm:p-4 bg-slate-900/75 backdrop-blur-xl border border-white/10 rounded-lg flex items-center gap-2 sm:gap-3 shadow-2xl relative group">
-                    <div className="absolute inset-0 bg-gradient-to-r from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-                    <div className="bg-primary/20 p-2 rounded-md text-primary shrink-0">
-                      <Icon className="w-5 h-5" />
-                    </div>
-                    <span className="text-[10px] sm:text-sm font-medium text-slate-200 leading-tight">
-                      {card.text}
-                    </span>
+                <div className="flex items-start gap-3">
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md bg-blue-500/12 text-blue-300">
+                    <Icon className="h-5 w-5" />
                   </div>
-                </motion.div>
+                  <div>
+                    <div className="text-sm font-semibold text-white">{card.text}</div>
+                    <div className="mt-1 text-xs text-slate-400">{card.detail}</div>
+                  </div>
+                </div>
               </motion.div>
             );
           })}
+          </div>
 
-          {/* Center piece */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 1, type: "spring" }}
-            className="absolute left-[50%] top-[50%] -translate-x-1/2 -translate-y-1/2 w-[130px] h-[130px] sm:w-[160px] sm:h-[160px] md:w-[200px] md:h-[200px] flex items-center justify-center bg-slate-900/90 backdrop-blur-2xl border border-primary/40 rounded-full shadow-[0_0_80px_-10px_rgba(0,210,255,0.4)] z-20"
-          >
-            <div
-              className="w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 bg-gradient-to-b from-white to-blue-400"
-              style={{
-                maskImage: 'url(/logos/ckt_logo.png)',
-                maskSize: 'contain',
-                maskRepeat: 'no-repeat',
-                maskPosition: 'center',
-                WebkitMaskImage: 'url(/logos/ckt_logo.png)',
-                WebkitMaskSize: 'contain',
-                WebkitMaskRepeat: 'no-repeat',
-                WebkitMaskPosition: 'center',
-              }}
-            />
-          </motion.div>
+          <div className="mt-5 rounded-lg border border-emerald-400/20 bg-emerald-400/10 p-4 text-sm text-emerald-100">
+            Готовый контур: лицензия, compliance, банковские подключения и международная маршрутизация.
+          </div>
         </div>
       </div>
     </section>

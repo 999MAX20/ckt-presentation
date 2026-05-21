@@ -20,7 +20,7 @@ export function IntegrationsSection() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Main Unit: One container for Map + Overlay */}
-        <div className="relative rounded-lg overflow-hidden border border-white/10 bg-[#0B1A2B]/40 backdrop-blur-sm shadow-2xl h-[500px] sm:h-[600px] lg:h-[700px] mb-24">
+        <div className="relative rounded-lg overflow-hidden border border-white/10 bg-[#07111F]/80 backdrop-blur-sm shadow-2xl h-[500px] sm:h-[600px] lg:h-[700px] mb-24">
           
           {/* Layer 1: Background Map */}
           <div className="absolute inset-0 z-0">
@@ -31,7 +31,13 @@ export function IntegrationsSection() {
           </div>
 
           {/* Subtle glow layer */}
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,_rgba(59,130,246,0.05),transparent_70%)] pointer-events-none z-10" />
+          <div className="absolute left-6 top-6 z-20 hidden rounded-md border border-white/10 bg-[#071227]/82 px-4 py-3 text-xs text-slate-300 backdrop-blur-xl sm:block">
+            <div className="font-bold uppercase tracking-wide text-slate-500">Network intelligence</div>
+            <div className="mt-2 flex gap-4">
+              <span className="flex items-center gap-2"><i className="h-2 w-2 rounded-full bg-blue-400" /> Hub</span>
+              <span className="flex items-center gap-2"><i className="h-2 w-2 rounded-full bg-emerald-400" /> Active corridor</span>
+            </div>
+          </div>
 
 
           {/* Layer 3: Desktop Absolute Glass Panel (Right) */}
@@ -45,7 +51,7 @@ export function IntegrationsSection() {
           </div>
 
           {/* Layer 4: Desktop/Tablet Absolute Glass Panel (Bottom Left) */}
-          <div className="hidden sm:flex absolute bottom-8 left-8 w-[340px] z-20 p-6 rounded-lg bg-[#071227]/78 backdrop-blur-xl border border-white/10 shadow-3xl">
+          <div className="hidden sm:flex absolute bottom-8 left-8 w-[340px] z-20 p-6 rounded-lg bg-[#071227]/86 backdrop-blur-xl border border-white/10 shadow-3xl">
             <TransferMethodsCard isCompact={true} />
           </div>
         </div>

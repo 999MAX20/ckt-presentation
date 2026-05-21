@@ -95,8 +95,8 @@ export function BankingPartnersSection() {
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-5xl mx-auto px-4 md:px-8">
-        {partners.map((partner, idx) => (
-          <BankPartnerCard key={idx} {...partner} />
+        {partners.map((partner) => (
+          <BankPartnerCard key={partner.name} {...partner} />
         ))}
       </div>
     </AnimatedSection>

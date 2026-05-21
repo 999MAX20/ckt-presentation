@@ -15,7 +15,7 @@ export function ValueAssetSection() {
   ];
 
   return (
-    <AnimatedSection className="w-full py-24">
+    <AnimatedSection className="w-full py-24" id="value">
       <div className="max-w-6xl mx-auto flex flex-col lg:flex-row gap-16 items-center">
         <div className="flex-1 text-center lg:text-left">
           <div className="text-center lg:text-left mb-16 relative z-10">

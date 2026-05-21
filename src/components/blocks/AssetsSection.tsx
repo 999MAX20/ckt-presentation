@@ -15,10 +15,9 @@ export function AssetsSection() {
   ];
 
   return (
-    <AnimatedSection className="w-full relative py-20">
-      <div className="absolute inset-0 surface-panel rounded-lg pointer-events-none" />
+    <AnimatedSection className="w-full relative overflow-hidden rounded-lg border border-white/10 bg-[#111D31]/80 px-5 py-12 shadow-[0_24px_80px_rgba(0,0,0,0.22)] backdrop-blur-md sm:px-8 md:py-16">
 
-      <div className="text-center mb-12">
+      <div className="relative z-10 text-center mb-10">
         <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-4 section-title">
           Активы компании
         </h2>
@@ -27,7 +26,7 @@ export function AssetsSection() {
         </p>
       </div>
 
-      <div className="grid grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto relative z-10">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 max-w-5xl mx-auto relative z-10">
         {assets.map((asset, idx) => {
           const Icon = asset.icon;
           return (
@@ -35,7 +34,7 @@ export function AssetsSection() {
               <div className="w-14 h-14 bg-[#25365A] rounded-lg flex items-center justify-center text-blue-400 mb-6 shadow-sm">
                 <Icon className="w-7 h-7" />
               </div>
-              <h3 className="text-lg font-bold">{asset.title}</h3>
+              <h3 className="text-lg font-bold text-[#F8FAFC]">{asset.title}</h3>
             </GlowingCard>
           );
         })}

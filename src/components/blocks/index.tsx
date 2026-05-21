@@ -10,3 +10,6 @@ export { AssetsSection } from "./AssetsSection";
 export { ComplianceSection } from "./ComplianceSection";
 export { RevenueSection } from "./RevenueSection";
 export { ValueAssetSection } from "./ValueAssetSection";
+export { TopNavigation } from "./TopNavigation";
+export { TrustStrip } from "./TrustStrip";
+export { FinalCtaSection } from "./FinalCtaSection";

@@ -30,6 +30,19 @@ export function VisaPciSection() {
         </p>
       </div>
 
+      <div className="mb-8 grid gap-4 rounded-lg border border-white/10 bg-[#0B1728]/70 p-4 sm:grid-cols-3 sm:p-5">
+        {[
+          ["НБРК", "Официальный статус платежной организации"],
+          ["Visa PF", "CPA Extension Agreement"],
+          ["PCI DSS", "Сертификат Digital Initiatives LLP"],
+        ].map(([label, detail]) => (
+          <div key={label} className="rounded-md border border-white/[0.06] bg-white/[0.03] p-4 text-left">
+            <div className="text-sm font-bold text-white">{label}</div>
+            <div className="mt-1 text-xs leading-relaxed text-slate-400">{detail}</div>
+          </div>
+        ))}
+      </div>
+
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
         {/* Visa Column */}
         <div className="flex flex-col gap-8">
@@ -60,7 +73,7 @@ export function VisaPciSection() {
 
           {/* Visa Document Embed */}
           <div className="flex flex-col gap-4">
-            <div className="relative group w-full h-[500px] rounded-lg overflow-hidden border border-white/10 shadow-xl bg-slate-900/50">
+            <div className="relative group w-full h-[360px] rounded-lg overflow-hidden border border-white/10 shadow-xl bg-slate-900/50">
               {/* Controls Overlay */}
               <div className="absolute top-4 right-4 z-20 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
                 <button 
@@ -129,7 +142,7 @@ export function VisaPciSection() {
 
           {/* PCI Document Embed */}
           <div className="flex flex-col gap-4">
-            <div className="relative group w-full h-[500px] rounded-lg overflow-hidden border border-white/10 shadow-xl bg-slate-900/50 flex items-center justify-center p-4">
+            <div className="relative group w-full h-[360px] rounded-lg overflow-hidden border border-white/10 shadow-xl bg-slate-900/50 flex items-center justify-center p-4">
               {/* Controls Overlay */}
               <div className="absolute top-4 right-4 z-20 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
                 <button 

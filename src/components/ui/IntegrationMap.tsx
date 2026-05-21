@@ -56,7 +56,7 @@ const MapChart = () => {
   return (
     <div className="w-full h-full relative flex items-center justify-center min-h-[400px]">
       {/* Background glow behind the map */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-blue-500/10 via-transparent to-transparent opacity-60 pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(59,130,246,0.08),transparent_62%)] opacity-70 pointer-events-none" />
 
       <ComposableMap
         projectionConfig={{
@@ -77,12 +77,12 @@ const MapChart = () => {
                 <Geography
                   key={geo.rsmKey}
                   geography={geo}
-                  fill={countryColor ? `${countryColor}99` : "#17263A"} // Add 99 for ~60% opacity
-                  stroke="#274060"
+                  fill={countryColor ? `${countryColor}88` : "#101B2B"}
+                  stroke="#223550"
                   strokeWidth={0.5}
                   style={{
                     default: { outline: "none", transition: "all 0.3s" },
-                    hover: { fill: "#2D5E99", outline: "none" },
+                    hover: { fill: countryColor || "#1E3350", outline: "none" },
                     pressed: { outline: "none" },
                   }}
                 />
@@ -98,10 +98,10 @@ const MapChart = () => {
             from={KAZAKHSTAN_CORDS}
             to={node.coordinates}
             stroke={node.color}
-            strokeWidth={1}
+            strokeWidth={0.85}
             strokeLinecap="round"
-            className="opacity-30 translate-y-[-1px]"
-            style={{ strokeDasharray: "3 3" }}
+            className="opacity-45 translate-y-[-1px]"
+            style={{ strokeDasharray: "4 6" }}
           />
         ))}
 

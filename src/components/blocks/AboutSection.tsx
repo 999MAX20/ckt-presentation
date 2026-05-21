@@ -12,7 +12,7 @@ export function AboutSection() {
   ];
 
   return (
-    <AnimatedSection className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+    <AnimatedSection className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center" id="about">
       <div>
         <h2 className="text-2xl sm:text-3xl md:text-[40px] font-bold mb-6 text-center lg:text-left font-display tracking-normal section-title">
           О компании
