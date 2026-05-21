@@ -7,8 +7,7 @@ import {
   Geography,
   Marker,
   Line,
-  Sphere,
-  Graticule
+  Sphere
 } from "react-simple-maps";
 import { motion } from "framer-motion";
 

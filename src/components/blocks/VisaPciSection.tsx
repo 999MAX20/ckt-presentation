@@ -4,6 +4,7 @@ import { AnimatedSection } from "@/components/ui/animated-section";
 import { GlowingCard } from "@/components/ui/glowing-card";
 import { CreditCard, ShieldCheck, CheckCircle2, Maximize2, Download, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import Image from "next/image";
 
 export function VisaPciSection() {
   const visaDocUrl = "/certs/cpa_agreement.pdf";
@@ -21,7 +22,7 @@ export function VisaPciSection() {
   return (
     <AnimatedSection className="w-full">
       <div className="text-center max-w-3xl mx-auto mb-12">
-        <h2 className="text-2xl sm:text-3xl md:text-[40px] font-bold mb-6 font-display tracking-tight">
+        <h2 className="text-2xl sm:text-3xl md:text-[40px] font-bold mb-6 font-display tracking-normal section-title">
           Безопасность и Статус
         </h2>
         <p className="text-[#E6EDF3]/75 text-lg font-sans">
@@ -34,7 +35,7 @@ export function VisaPciSection() {
         <div className="flex flex-col gap-8">
           <GlowingCard glowColor="rgba(59, 130, 246, 0.15)" className="p-6 sm:p-8 md:p-10 flex flex-col h-full bg-[#1A2642]">
             <div className="flex items-start justify-between mb-8">
-              <div className="w-16 h-16 bg-blue-600 rounded-[16px] flex items-center justify-center text-white shadow-sm">
+              <div className="w-16 h-16 bg-blue-600 rounded-lg flex items-center justify-center text-white shadow-sm">
                 <CreditCard className="w-8 h-8" />
               </div>
               <div className="flex flex-col items-end">
@@ -44,7 +45,7 @@ export function VisaPciSection() {
                 <span className="text-[#E6EDF3]/60 text-sm font-medium font-sans">Оплачено до 2026</span>
               </div>
             </div>
-            <h3 className="text-2xl font-bold mb-2 font-display tracking-tight">Сертификация VISA</h3>
+            <h3 className="text-2xl font-bold mb-2 font-display tracking-normal text-[#F8FAFC]">Сертификация VISA</h3>
             <p className="text-[#E6EDF3]/70 mb-6 font-sans">
               Прямой доступ к сети Visa. Оплачено на 1 год.
             </p>
@@ -59,19 +60,19 @@ export function VisaPciSection() {
 
           {/* Visa Document Embed */}
           <div className="flex flex-col gap-4">
-            <div className="relative group w-full h-[500px] rounded-2xl overflow-hidden border border-white/10 shadow-xl bg-slate-900/50">
+            <div className="relative group w-full h-[500px] rounded-lg overflow-hidden border border-white/10 shadow-xl bg-slate-900/50">
               {/* Controls Overlay */}
               <div className="absolute top-4 right-4 z-20 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
                 <button 
                   onClick={() => window.open(visaDocUrl, "_blank")}
-                  className="p-3 bg-blue-600/90 hover:bg-blue-500 text-white rounded-xl shadow-lg transition-colors flex items-center justify-center backdrop-blur-md"
+                  className="p-3 bg-blue-600/90 hover:bg-blue-500 text-white rounded-lg shadow-lg transition-colors flex items-center justify-center backdrop-blur-md"
                   title="Полноэкранный просмотр"
                 >
                   <Maximize2 className="w-5 h-5" />
                 </button>
                 <button 
                   onClick={() => handleDownload(visaDocUrl, "Visa_CPA_Agreement.pdf")}
-                  className="p-3 bg-slate-800/90 hover:bg-slate-700 text-white rounded-xl shadow-lg transition-colors flex items-center justify-center backdrop-blur-md"
+                  className="p-3 bg-slate-800/90 hover:bg-slate-700 text-white rounded-lg shadow-lg transition-colors flex items-center justify-center backdrop-blur-md"
                   title="Скачать"
                 >
                   <Download className="w-5 h-5" />
@@ -88,7 +89,7 @@ export function VisaPciSection() {
             <div className="md:hidden">
               <Button 
                 onClick={() => window.open(visaDocUrl, "_blank")}
-                className="w-full h-12 bg-blue-600 hover:bg-blue-500 text-white rounded-xl shadow-lg transition-all flex items-center justify-center gap-2 font-semibold"
+                className="w-full h-12 bg-blue-600 hover:bg-blue-500 text-white rounded-lg shadow-lg transition-all flex items-center justify-center gap-2 font-semibold"
               >
                 <ExternalLink className="w-4 h-4" />
                 Просмотреть сертификат
@@ -102,7 +103,7 @@ export function VisaPciSection() {
         <div className="flex flex-col gap-8">
           <GlowingCard glowColor="rgba(168, 85, 247, 0.15)" className="p-6 sm:p-8 md:p-10 flex flex-col h-full bg-[#1A2642]">
             <div className="flex items-start justify-between mb-8">
-              <div className="w-16 h-16 bg-purple-600 rounded-[16px] flex items-center justify-center text-white shadow-sm">
+              <div className="w-16 h-16 bg-purple-600 rounded-lg flex items-center justify-center text-white shadow-sm">
                 <ShieldCheck className="w-8 h-8" />
               </div>
               <div className="flex flex-col items-end">
@@ -113,7 +114,7 @@ export function VisaPciSection() {
               </div>
             </div>
 
-            <h3 className="text-2xl font-bold mb-2 font-display tracking-tight">PCI DSS 4.0.1</h3>
+            <h3 className="text-2xl font-bold mb-2 font-display tracking-normal text-[#F8FAFC]">PCI DSS 4.0.1</h3>
             <p className="text-[#E6EDF3]/70 mb-6 font-sans">
               Высший уровень защиты карточных данных (Вендор: Digital Initiatives LLP).
             </p>
@@ -128,28 +129,30 @@ export function VisaPciSection() {
 
           {/* PCI Document Embed */}
           <div className="flex flex-col gap-4">
-            <div className="relative group w-full h-[500px] rounded-2xl overflow-hidden border border-white/10 shadow-xl bg-slate-900/50 flex items-center justify-center p-4">
+            <div className="relative group w-full h-[500px] rounded-lg overflow-hidden border border-white/10 shadow-xl bg-slate-900/50 flex items-center justify-center p-4">
               {/* Controls Overlay */}
               <div className="absolute top-4 right-4 z-20 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
                 <button 
                   onClick={() => window.open(pciDocUrl, "_blank")}
-                  className="p-3 bg-purple-600/90 hover:bg-purple-500 text-white rounded-xl shadow-lg transition-colors flex items-center justify-center backdrop-blur-md"
+                  className="p-3 bg-purple-600/90 hover:bg-purple-500 text-white rounded-lg shadow-lg transition-colors flex items-center justify-center backdrop-blur-md"
                   title="Полноэкранный просмотр"
                 >
                   <Maximize2 className="w-5 h-5" />
                 </button>
                 <button 
                   onClick={() => handleDownload(pciDocUrl, "PCI_DSS_Certificate.jpeg")}
-                  className="p-3 bg-slate-800/90 hover:bg-slate-700 text-white rounded-xl shadow-lg transition-colors flex items-center justify-center backdrop-blur-md"
+                  className="p-3 bg-slate-800/90 hover:bg-slate-700 text-white rounded-lg shadow-lg transition-colors flex items-center justify-center backdrop-blur-md"
                   title="Скачать"
                 >
                   <Download className="w-5 h-5" />
                 </button>
               </div>
 
-              <img 
-                src={pciDocUrl} 
-                alt="PCI DSS Certification" 
+              <Image
+                src={pciDocUrl}
+                alt="PCI DSS Certification"
+                width={700}
+                height={980}
                 className="max-w-full max-h-full object-contain rounded-lg shadow-sm"
               />
             </div>
@@ -157,7 +160,7 @@ export function VisaPciSection() {
             <div className="md:hidden">
               <Button 
                 onClick={() => window.open(pciDocUrl, "_blank")}
-                className="w-full h-12 bg-purple-600 hover:bg-purple-500 text-white rounded-xl shadow-lg transition-all flex items-center justify-center gap-2 font-semibold"
+                className="w-full h-12 bg-purple-600 hover:bg-purple-500 text-white rounded-lg shadow-lg transition-all flex items-center justify-center gap-2 font-semibold"
               >
                 <ExternalLink className="w-4 h-4" />
                 Просмотреть сертификат

@@ -21,7 +21,7 @@ export function IntegrationCountriesList() {
 
   return (
     <div className="w-full">
-      <h3 className="text-lg font-bold text-[#E6EDF3] mb-6 flex items-center gap-3 font-display tracking-tight">
+      <h3 className="text-lg font-bold text-[#E6EDF3] mb-6 flex items-center gap-3 font-display tracking-normal">
         <span className="w-1.5 h-6 bg-blue-500 rounded-full" />
         Страны интеграций
       </h3>
@@ -34,7 +34,7 @@ export function IntegrationCountriesList() {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ delay: idx * 0.05 }}
             viewport={{ once: true }}
-            className={`flex items-center gap-4 p-4 rounded-2xl bg-white/[0.03] border border-white/5 ${country.color} hover:bg-white/10 transition-all group cursor-default min-h-[72px]`}
+            className={`flex items-center gap-4 p-4 rounded-lg bg-white/[0.03] border border-white/5 ${country.color} hover:bg-white/10 transition-all group cursor-default min-h-[72px]`}
           >
             <span className="text-2xl transition-transform group-hover:scale-110 duration-300 shrink-0">
               {country.flag}

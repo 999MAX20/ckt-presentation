@@ -28,7 +28,7 @@ export function GlowingCard({
       whileHover={{ y: -2 }}
       onMouseMove={handleMouseMove}
       className={cn(
-        "relative group rounded-2xl border border-white/5 bg-[#15223A] overflow-hidden transition-colors hover:border-white/10 shadow-sm",
+        "relative group rounded-lg border border-white/10 bg-[#15223A]/95 overflow-hidden transition-colors hover:border-white/20 shadow-[0_18px_60px_rgba(0,0,0,0.18)]",
         className
       )}
       {...props}

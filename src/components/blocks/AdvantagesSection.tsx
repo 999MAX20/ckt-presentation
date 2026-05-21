@@ -53,7 +53,7 @@ export function AdvantagesSection() {
   return (
     <AnimatedSection className="flex flex-col gap-12" id="advantages">
       <div className="text-center max-w-3xl mx-auto mb-8">
-        <h2 className="text-2xl sm:text-3xl md:text-[40px] font-bold mb-6 font-display tracking-tight">
+        <h2 className="text-2xl sm:text-3xl md:text-[40px] font-bold mb-6 font-display tracking-normal section-title">
           Ключевые преимущества
         </h2>
         <p className="text-[#E6EDF3]/75 text-lg font-sans">
@@ -73,10 +73,10 @@ export function AdvantagesSection() {
 
           return (
             <GlowingCard key={idx} className={`flex flex-col gap-4 ${adv.className}`} glowColor={adv.glow}>
-              <div className={`w-14 h-14 ${iconBg} rounded-[14px] flex items-center justify-center text-white mb-2 shadow-sm`}>
+              <div className={`w-14 h-14 ${iconBg} rounded-lg flex items-center justify-center text-white mb-2 shadow-sm`}>
                 <adv.icon className="w-7 h-7" />
               </div>
-              <h3 className="text-2xl font-bold mt-auto font-sans tracking-tight">{adv.title}</h3>
+              <h3 className="text-2xl font-bold mt-auto font-sans tracking-normal text-[#F8FAFC]">{adv.title}</h3>
               <p className="text-[#E6EDF3]/70 leading-relaxed text-sm md:text-base mt-2 font-sans">
                 {adv.description}
               </p>

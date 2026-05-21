@@ -20,7 +20,7 @@ export function LicenseSection() {
   return (
     <AnimatedSection className="w-full">
       <div className="max-w-4xl mx-auto flex flex-col items-center text-center">
-        <h2 className="text-2xl sm:text-3xl md:text-[40px] font-bold mb-8 sm:mb-12 font-display tracking-tight">
+        <h2 className="text-2xl sm:text-3xl md:text-[40px] font-bold mb-8 sm:mb-12 font-display tracking-normal section-title">
           Лицензия и регулирование
         </h2>
 
@@ -28,11 +28,11 @@ export function LicenseSection() {
           {/* Background decorative shield icon */}
           <Shield className="absolute text-blue-500/5 -z-10 w-96 h-96 -top-20 -right-20 transform rotate-12" />
 
-          <div className="w-20 h-20 bg-blue-500 rounded-full flex items-center justify-center mb-6">
+          <div className="w-20 h-20 bg-blue-500 rounded-lg flex items-center justify-center mb-6">
             <Shield className="w-10 h-10 text-white" />
           </div>
 
-          <h3 className="text-xl sm:text-2xl md:text-[32px] font-bold mb-6 font-display leading-tight tracking-tight">
+          <h3 className="text-xl sm:text-2xl md:text-[32px] font-bold mb-6 font-display leading-tight tracking-normal text-[#F8FAFC]">
             Национальный банк <br className="hidden md:block" /> Республики Казахстан
           </h3>
 
@@ -56,19 +56,19 @@ export function LicenseSection() {
         </GlowingCard>
 
         {/* Embedded PDF License */}
-        <div className="relative group w-full max-w-2xl h-[450px] md:h-[550px] rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-slate-900/50 backdrop-blur-sm">
+        <div className="relative group w-full max-w-2xl h-[450px] md:h-[550px] rounded-lg overflow-hidden border border-white/10 shadow-2xl bg-slate-900/50 backdrop-blur-sm">
           {/* Controls Overlay */}
           <div className="absolute top-4 right-4 z-20 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
             <button 
               onClick={() => window.open(docUrl, "_blank")}
-              className="p-3 bg-blue-600/90 hover:bg-blue-500 text-white rounded-xl shadow-lg transition-colors flex items-center justify-center backdrop-blur-md"
+              className="p-3 bg-blue-600/90 hover:bg-blue-500 text-white rounded-lg shadow-lg transition-colors flex items-center justify-center backdrop-blur-md"
               title="Полноэкранный просмотр"
             >
               <Maximize2 className="w-5 h-5" />
             </button>
             <button 
               onClick={handleDownload}
-              className="p-3 bg-slate-800/90 hover:bg-slate-700 text-white rounded-xl shadow-lg transition-colors flex items-center justify-center backdrop-blur-md"
+              className="p-3 bg-slate-800/90 hover:bg-slate-700 text-white rounded-lg shadow-lg transition-colors flex items-center justify-center backdrop-blur-md"
               title="Скачать"
             >
               <Download className="w-5 h-5" />
@@ -86,7 +86,7 @@ export function LicenseSection() {
         <div className="mt-6 md:hidden w-full px-4">
           <Button 
             onClick={() => window.open(docUrl, "_blank")}
-            className="w-full h-14 bg-blue-600 hover:bg-blue-500 text-white rounded-xl shadow-lg transition-all flex items-center justify-center gap-2 text-lg font-semibold"
+            className="w-full h-14 bg-blue-600 hover:bg-blue-500 text-white rounded-lg shadow-lg transition-all flex items-center justify-center gap-2 text-lg font-semibold"
           >
             <ExternalLink className="w-5 h-5" />
             Просмотреть лицензию

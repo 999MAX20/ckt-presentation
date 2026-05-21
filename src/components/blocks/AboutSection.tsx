@@ -14,7 +14,7 @@ export function AboutSection() {
   return (
     <AnimatedSection className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
       <div>
-        <h2 className="text-2xl sm:text-3xl md:text-[40px] font-bold mb-6 text-center lg:text-left font-display tracking-tight">
+        <h2 className="text-2xl sm:text-3xl md:text-[40px] font-bold mb-6 text-center lg:text-left font-display tracking-normal section-title">
           О компании
         </h2>
         <div className="space-y-6 text-[#E6EDF3]/75 text-lg leading-relaxed text-center lg:text-left font-sans">

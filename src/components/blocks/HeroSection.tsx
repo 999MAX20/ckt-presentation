@@ -3,7 +3,6 @@
 import { motion, Variants } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, ShieldCheck, CreditCard, LayoutGrid, Globe, Building2 } from "lucide-react";
-import { GlowingCard } from "@/components/ui/glowing-card";
 import { useState, useEffect } from "react";
 
 export function HeroSection() {
@@ -53,6 +52,21 @@ export function HeroSection() {
     { text: "Cross-border", icon: Globe, custom: 0.8 },
   ];
 
+  const [radius, setRadius] = useState(220);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 480) setRadius(128);
+      else if (window.innerWidth < 640) setRadius(158);
+      else if (window.innerWidth < 1024) setRadius(198);
+      else setRadius(220);
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   return (
     <section className="relative w-full min-h-[95vh] flex flex-col lg:flex-row items-center justify-between pt-16 pb-16 lg:pt-28">
       {/* Left Content */}
@@ -66,7 +80,7 @@ export function HeroSection() {
 
         <motion.h1
           variants={textRevealVariants}
-          className="text-4xl sm:text-5xl md:text-[68px] font-semibold tracking-[-0.03em] mb-8 font-display flex flex-col items-start"
+          className="text-4xl sm:text-5xl md:text-[68px] font-semibold tracking-normal mb-8 font-display flex flex-col items-start text-[#F8FAFC]"
         >
           <span className="block leading-[0.9]">Центр</span>
           <span className="block leading-[0.92] -mt-0 md:-mt-0">карточных</span>
@@ -76,7 +90,7 @@ export function HeroSection() {
         <div className="overflow-hidden mb-6">
           <motion.p
             variants={textRevealVariants}
-            className="text-lg sm:text-xl md:text-3xl text-[#E6EDF3] font-medium max-w-2xl font-display leading-tight tracking-tight"
+            className="text-lg sm:text-xl md:text-3xl text-blue-100 font-medium max-w-2xl font-display leading-tight tracking-normal"
           >
             Платежная инфраструктура для стратегического роста
           </motion.p>
@@ -96,7 +110,7 @@ export function HeroSection() {
         >
           <Button
             size="lg"
-            className="text-md h-14 px-8 bg-blue-500 hover:bg-blue-600 text-white rounded-xl shadow-[0_0_30px_-5px_rgba(59,130,246,0.5)] transition-all"
+            className="text-md h-14 px-8 bg-blue-500 hover:bg-blue-600 text-white rounded-lg shadow-[0_16px_40px_-18px_rgba(59,130,246,0.9)] transition-all"
             onClick={() => window.open("https://cardtechnologies.kz/", "_blank")}
           >
             Наш сайт
@@ -104,7 +118,7 @@ export function HeroSection() {
           <Button
             size="lg"
             variant="outline"
-            className="text-md h-14 px-8 border-white/10 hover:bg-white/5 hover:text-white rounded-xl flex items-center gap-2"
+            className="text-md h-14 px-8 border-white/15 bg-white/[0.03] hover:bg-white/[0.08] hover:text-white rounded-lg flex items-center gap-2"
             onClick={() => {
               document.getElementById("architecture")?.scrollIntoView({ behavior: "smooth" });
             }}
@@ -118,35 +132,15 @@ export function HeroSection() {
       {/* Right Content - Abstract Fintech Visual */}
       <div className="flex-1 w-full mt-32 sm:mt-20 lg:mt-0 relative h-[450px] sm:h-[600px] flex items-center justify-center">
         <div className="absolute inset-0 z-0 flex items-center justify-center">
-          {/* Glowing central orb */}
-          <motion.div
-            animate={{ scale: [1, 1.05, 1], opacity: [0.5, 0.8, 0.5] }}
-            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-            className="w-[300px] h-[300px] rounded-full bg-gradient-to-tr from-primary/30 to-purple-500/30 blur-[60px]"
-          />
+          <div className="h-[72%] w-[72%] border border-blue-400/10 bg-[#0B1728]/35 backdrop-blur-sm" />
+          <div className="absolute h-[48%] w-[48%] border border-blue-300/10" />
         </div>
 
         {/* Floating Cards Diagram */}
         <div className="relative z-10 w-full h-full max-w-[500px]">
           {rightCards.map((card, i) => {
             const Icon = card.icon;
-            // Position calculations for circular layout
             const angle = (i * (2 * Math.PI)) / rightCards.length - Math.PI / 2;
-
-            // Responsive radius calculation
-            const [radius, setRadius] = useState(220);
-            useEffect(() => {
-              const handleResize = () => {
-                if (window.innerWidth < 480) setRadius(130);
-                else if (window.innerWidth < 640) setRadius(160);
-                else if (window.innerWidth < 1024) setRadius(200);
-                else setRadius(220);
-              };
-              handleResize();
-              window.addEventListener('resize', handleResize);
-              return () => window.removeEventListener('resize', handleResize);
-            }, []);
-
             const x = Math.cos(angle) * radius;
             const y = Math.sin(angle) * radius;
 
@@ -165,9 +159,9 @@ export function HeroSection() {
                   animate="floating"
                   custom={card.custom}
                 >
-                  <div className="w-[140px] sm:w-[200px] p-3 sm:p-4 bg-slate-900/60 backdrop-blur-xl border border-white/10 rounded-2xl flex items-center gap-2 sm:gap-3 shadow-2xl relative group">
+                  <div className="w-[140px] sm:w-[200px] p-3 sm:p-4 bg-slate-900/75 backdrop-blur-xl border border-white/10 rounded-lg flex items-center gap-2 sm:gap-3 shadow-2xl relative group">
                     <div className="absolute inset-0 bg-gradient-to-r from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-                    <div className="bg-primary/20 p-2 rounded-lg text-primary shrink-0">
+                    <div className="bg-primary/20 p-2 rounded-md text-primary shrink-0">
                       <Icon className="w-5 h-5" />
                     </div>
                     <span className="text-[10px] sm:text-sm font-medium text-slate-200 leading-tight">

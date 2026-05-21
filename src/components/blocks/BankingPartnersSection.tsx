@@ -42,7 +42,7 @@ const BankPartnerCard = ({
       </div>
 
       <div className="flex flex-col gap-2 sm:gap-3 relative z-10 pt-2 sm:pt-4">
-        <h3 className="text-2xl sm:text-3xl font-bold text-[#E6EDF3] font-display tracking-tight leading-tight">
+        <h3 className="text-2xl sm:text-3xl font-bold text-[#E6EDF3] font-display tracking-normal leading-tight">
           {name}
         </h3>
         <p className="text-blue-400/90 font-bold text-xs sm:text-sm uppercase tracking-widest font-sans">
@@ -73,15 +73,6 @@ export function BankingPartnersSection() {
       statusBg: "bg-emerald-500/10",
     },
     {
-      name: "KwikPay",
-      logo: "/logos/kwikpay_logo.png",
-      type: "Cross-border processing",
-      description: "Международная платежная инфраструктура.",
-      status: "В процессе заключения договора",
-      statusColor: "text-amber-400",
-      statusBg: "bg-amber-500/10",
-    },
-    {
       name: "BCC BANK",
       logo: "/logos/logo_centercredit.webp",
       type: "Settlement infrastructure",
@@ -95,7 +86,7 @@ export function BankingPartnersSection() {
   return (
     <AnimatedSection className="w-full py-24" id="banking-infrastructure">
       <div className="text-center mb-12 sm:mb-16 px-4">
-        <h2 className="text-3xl sm:text-4xl md:text-[52px] font-bold mb-6 md:mb-8 font-display tracking-tight bg-gradient-to-b from-white to-blue-400 bg-clip-text text-transparent inline-block">
+        <h2 className="text-3xl sm:text-4xl md:text-[52px] font-bold mb-6 md:mb-8 font-display tracking-normal section-title">
           Банковская инфраструктура
         </h2>
         <p className="text-[#E6EDF3]/75 max-w-2xl mx-auto text-lg md:text-xl leading-relaxed font-sans">
@@ -103,7 +94,7 @@ export function BankingPartnersSection() {
         </p>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-7xl mx-auto px-4 md:px-8">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-5xl mx-auto px-4 md:px-8">
         {partners.map((partner, idx) => (
           <BankPartnerCard key={idx} {...partner} />
         ))}

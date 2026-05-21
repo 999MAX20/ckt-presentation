@@ -15,7 +15,7 @@ export function RevenueSection() {
   return (
     <AnimatedSection className="w-full">
       <div className="text-center mb-16">
-        <h2 className="text-2xl sm:text-3xl md:text-[40px] font-bold mb-4 font-display tracking-tight">
+        <h2 className="text-2xl sm:text-3xl md:text-[40px] font-bold mb-4 font-display tracking-normal section-title">
           Потенциал выручки
         </h2>
         <p className="text-[#E6EDF3]/75 max-w-2xl mx-auto text-lg font-sans">
@@ -26,11 +26,11 @@ export function RevenueSection() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
         {streams.map((stream, idx) => (
           <GlowingCard key={idx} className="p-6 sm:p-8 flex flex-col sm:flex-row gap-4 sm:gap-6 items-start">
-            <div className={`p-4 rounded-2xl bg-slate-800/50 border border-white/5 shrink-0 ${stream.color}`}>
+            <div className={`p-4 rounded-lg bg-slate-800/50 border border-white/5 shrink-0 ${stream.color}`}>
               <stream.icon className="w-8 h-8" />
             </div>
             <div>
-              <h3 className="text-xl font-bold mb-2 font-display tracking-tight">{stream.title}</h3>
+              <h3 className="text-xl font-bold mb-2 font-display tracking-normal text-[#F8FAFC]">{stream.title}</h3>
               <p className="text-[#E6EDF3]/70 font-sans">{stream.desc}</p>
             </div>
           </GlowingCard>

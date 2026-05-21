@@ -87,7 +87,7 @@
   --chart-4: #F59E0B; /* Yellow/Orange */
   --chart-5: #14B8A6; /* Teal */
   
-  --radius: 0.75rem;
+  --radius: 0.5rem;
 }
 
 .dark {
@@ -124,9 +124,23 @@
     @apply bg-background text-[#E6EDF3] font-sans antialiased;
   }
   h1, h2, h3, h4, .font-display {
-    @apply font-heading tracking-[-0.02em] bg-gradient-to-b from-white to-blue-400 bg-clip-text text-transparent inline-block w-full;
+    @apply font-heading tracking-normal;
   }
   p, span, div {
     @apply leading-relaxed;
+  }
+  ::selection {
+    background: rgba(51, 113, 255, 0.32);
+    color: #fff;
+  }
+}
+
+@layer utilities {
+  .section-title {
+    @apply text-[#F8FAFC] font-bold tracking-normal;
+  }
+
+  .surface-panel {
+    @apply bg-[#111D31]/80 border border-white/10 shadow-[0_24px_80px_rgba(0,0,0,0.22)] backdrop-blur-md;
   }
 }

@@ -16,9 +16,9 @@ export function ComplianceSection() {
   ];
 
   return (
-    <AnimatedSection className="w-full bg-slate-900/40 rounded-3xl p-8 md:p-12 lg:p-16 border border-white/5 my-16">
+    <AnimatedSection className="w-full surface-panel rounded-lg p-6 sm:p-8 md:p-12 lg:p-16 my-16">
       <div className="text-center mb-16">
-        <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold mb-4">
+        <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold mb-4 section-title">
           Compliance и <GradientText>Аналитика</GradientText>
         </h2>
         <p className="text-slate-400 max-w-2xl mx-auto text-lg">
@@ -31,7 +31,7 @@ export function ComplianceSection() {
           const Icon = feat.icon;
           return (
             <GlowingCard key={idx} glowColor={feat.glow} className="p-6">
-              <div className="w-12 h-12 rounded-xl bg-slate-800 flex items-center justify-center border border-white/10 mb-4">
+              <div className="w-12 h-12 rounded-lg bg-slate-800 flex items-center justify-center border border-white/10 mb-4">
                 <Icon className="w-6 h-6 text-slate-300" />
               </div>
               <h3 className="text-xl font-bold mb-2">{feat.title}</h3>
