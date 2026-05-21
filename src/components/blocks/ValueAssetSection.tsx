@@ -35,7 +35,7 @@ export function ValueAssetSection() {
             </div>
             
             <p className="text-lg text-[#E6EDF3]/80 leading-relaxed font-sans max-w-2xl mx-auto">
-              <strong className="text-[#E6EDF3] font-bold">Time-to-market.</strong> Самостоятельное создание подобной инфраструктуры,
+              Самостоятельное создание подобной инфраструктуры,
               прохождение комплаенса, подключение к МПС Visa и прохождение сертификации PCI DSS
               займет от 1.5 до 3 лет и потребует колоссальных инвестиций. ЦКТ предлагает готовое
               решение, работающее с первого дня.
