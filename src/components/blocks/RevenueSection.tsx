@@ -6,10 +6,10 @@ import { RefreshCcw, Percent, CircleDollarSign, CloudCog } from "lucide-react";
 
 export function RevenueSection() {
   const streams = [
-    { title: "Processing fee", desc: "Комиссии за обработку транзакций банками и процессинговыми центрами.", icon: RefreshCcw, color: "text-blue-400" },
-    { title: "Merchant commission", desc: "Процент с оборота мерчантов (эквайринг, интернет-эквайринг).", icon: Percent, color: "text-teal-400" },
-    { title: "Cross-border payments", desc: "Доход с трансграничных переводов и конвертации валют.", icon: CircleDollarSign, color: "text-purple-400" },
-    { title: "SaaS infrastructure", desc: "Аренда инфраструктуры и White-Label решения для других МФО/БВУ.", icon: CloudCog, color: "text-amber-400" },
+    { title: "Процессинговая комиссия", desc: "Комиссии за обработку транзакций банками и процессинговыми центрами.", icon: RefreshCcw, color: "text-blue-400" },
+    { title: "Комиссия с мерчантов", desc: "Процент с оборота мерчантов (эквайринг, интернет-эквайринг).", icon: Percent, color: "text-teal-400" },
+    { title: "Трансграничные платежи", desc: "Доход с трансграничных переводов и конвертации валют.", icon: CircleDollarSign, color: "text-purple-400" },
+    { title: "Инфраструктура SaaS", desc: "Аренда инфраструктуры и White-Label решения для других МФО/БВУ.", icon: CloudCog, color: "text-amber-400" },
   ];
 
   return (
